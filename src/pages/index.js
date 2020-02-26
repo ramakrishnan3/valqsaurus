@@ -82,8 +82,8 @@ function Home() {
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title={`${siteConfig.title} - Modern Digital Planning`}
-      description="ValQ - Modern Digital Planning">
+      title={`${siteConfig.title} - Modern Visual Planning`}
+      description="ValQ - Modern Visual Planning">
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
