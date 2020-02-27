@@ -1,0 +1,177 @@
+---
+id: write-back
+title: WriteBack Overview
+---
+import useBaseUrl from '@docusaurus/useBaseUrl'; // Add to the top of the file below the front matter.
+
+You will be able to export the Scenarios configured in the valQ through
+an URL by entering the Writeback URL in the Text Box (see Figure below).
+
+<img alt="Export Scenarios via Writeback URL" src={useBaseUrl('/doc-images/wrb.png')} />
+
+The different simulations of planning results can be written back to the
+underlying systems using the URL exposed as part of the valQ. 
+
+Consider the Demand and Inventory nodes to follow the trend as shown below.
+
+| Parameter          | HY 1   | HY 2   |
+|--------------------|--------|--------|
+| Demand             | 110    | 95     |
+| Inventory          | 85     | 70     |
+| Demand - Inventory | 25     | 25     |
+
+
+<img alt="Export Scenarios via Writeback URL" src={useBaseUrl('/doc-images/writeback.png')} />
+
+The user can do write-back scenario nodes to the underlying 
+system by clicking on the writeback icon in the navigation panel.
+
+For the above tree, on writing back to the URL, the below data will be posted 
+to the URL which can be processed as needed.
+
+```
+{
+    "version": "1.0.0",
+    "code": 200,
+    "schema": "[Scenario]",
+    "result": [
+        {
+            "id": "1",
+            "title": "Scenario 1",
+            "description": "",
+            "simulatedNodes": [],
+            "resultNodes": [
+                {
+                    "id": "TOP",
+                    "title": "Demand - Inventory",
+                    "periodValues": [
+                        {
+                            "id": "1",
+                            "label": "HY1",
+                            "sim": -25,
+                            "base": -25,
+                            "target": 20
+                        },
+                        {
+                            "id": "2",
+                            "label": " HY2",
+                            "sim": -20,
+                            "base": -20,
+                            "target": 20
+                        },
+                        {
+                            "id": "total",
+                            "label": "Full Year",
+                            "sim": -45,
+                            "base": -45,
+                            "target": 40
+                        },
+                        {
+                            "id": "ptd",
+                            "label": "YtD",
+                            "sim": 0,
+                            "base": 0,
+                            "target": 0
+                        },
+                        {
+                            "id": "sel",
+                            "label": "Sim.Mths",
+                            "sim": -45,
+                            "base": -45,
+                            "target": 40
+                        }
+                    ],
+                    "nodeType": ""
+                },
+                {
+                    "id": "2",
+                    "title": "Inventory",
+                    "periodValues": [
+                        {
+                            "id": "1",
+                            "label": "HY1",
+                            "sim": 85,
+                            "base": 85,
+                            "target": 120
+                        },
+                        {
+                            "id": "2",
+                            "label": " HY2",
+                            "sim": 75,
+                            "base": 75,
+                            "target": 120
+                        },
+                        {
+                            "id": "total",
+                            "label": "Full Year",
+                            "sim": 160,
+                            "base": 160,
+                            "target": 240
+                        },
+                        {
+                            "id": "ptd",
+                            "label": "YtD",
+                            "sim": 0,
+                            "base": 0,
+                            "target": 0
+                        },
+                        {
+                            "id": "sel",
+                            "label": "Sim.Mths",
+                            "sim": 160,
+                            "base": 160,
+                            "target": 240
+                        }
+                    ],
+                    "nodeType": ""
+                },
+                {
+                    "id": "1",
+                    "title": "Demand",
+                    "periodValues": [
+                        {
+                            "id": "1",
+                            "label": "HY1",
+                            "sim": 110,
+                            "base": 110,
+                            "target": 100
+                        },
+                        {
+                            "id": "2",
+                            "label": " HY2",
+                            "sim": 95,
+                            "base": 95,
+                            "target": 100
+                        },
+                        {
+                            "id": "total",
+                            "label": "Full Year",
+                            "sim": 205,
+                            "base": 205,
+                            "target": 200
+                        },
+                        {
+                            "id": "ptd",
+                            "label": "YtD",
+                            "sim": 0,
+                            "base": 0,
+                            "target": 0
+                        },
+                        {
+                            "id": "sel",
+                            "label": "Sim.Mths",
+                            "sim": 205,
+                            "base": 205,
+                            "target": 200
+                        }
+                    ],
+                    "nodeType": ""
+                }
+            ]
+        }
+    ]
+}
+```
+
+For more details on Writeback Functionality, you can refer the link:
+<https://valq.com/blogs/writeback-valq-data-using-microsoft-flow>

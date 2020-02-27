@@ -61,6 +61,12 @@ module.exports = {
             }
         ]
     },
+    writebackSideBar: {
+        "Writeback": [
+            "faq/write-back",
+            "faq/write-back-schema"
+        ]
+    },
     functionSideBar: {
         "Logical Functions": [
             "references/formulas/if",
