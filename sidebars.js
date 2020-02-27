@@ -4,6 +4,8 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+const baseUrl = require("./urlConfig.json").baseUrl;
+const useBaseUrl = (url) => baseUrl+url;
 
 module.exports = {
     sideBar: {
@@ -40,6 +42,11 @@ module.exports = {
             "faq/formula-list",
             "faq/definitions",
             "faq/known-issues",
+            {
+                type: "link",
+                label: "Writeback",
+                href: useBaseUrl('docs/faq/write-back')
+            },
             {
                 type: "category",
                 label: "Videos",
